@@ -41,3 +41,6 @@ apt-get -y autoremove expect unzip
 rm -rf /var/lib/apt/lists/*
 rm -f Rinxter-*.zip Rinxter-*.jar
 
+# remove myself
+rm -f ${0}
+
