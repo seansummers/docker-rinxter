@@ -9,7 +9,8 @@ echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
 
 # unzip Rinxter and install...
 apt-get -y install unzip expect
-unzip Rinxter-*.zip
+unzip Rinxter-*.zip || exit 1
+
 expect -c 'spawn java -jar Rinxter-2.0.jar -console
 while {1} {
  expect {
