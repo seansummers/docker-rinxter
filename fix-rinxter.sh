@@ -1,9 +1,7 @@
 #!/bin/sh
 
-RINXTER=/root
-RINXTERV=${RINXTER}/2.0
-
-cd ${RINXTER}
+RINXTER=/root/Rinxter
+RINXTERBIN=${RINXTER}/../2.0
 
 # prep apt-get
 echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup
@@ -23,17 +21,13 @@ while {1} {
 }'
 
 # add missing directories
-mkdir -p ${RINXTERV}/lib/ext
+mkdir -p ${RINXTERBIN}/lib/ext
 
 # fix line endings
-perl -pi -e 's/\r//g' ${RINXTERV}/bin/*.sh
-
-## move imgs to be under the data directory
-perl -pi -e 's/Rinxter\/imgs/Rinxter\/data\/imgs/g' ${RINXTERV}/conf/Catalina/localhost/*.xml
-mv ${RINXTER}/imgs ${RINXTER}/data/
+perl -pi -e 's/\r//g' ${RINXTERBIN}/bin/*.sh
 
 # create temp in the data volume so that upload hard-link-to-target trick works for rinxter
-mkdir -p ${RINXTER}/data/temp
+mkdir -p ${RINXTER}/temp
 
 # install fonts needed for pdf reports
 apt-get -y install ttf-dejavu ttf-liberation
@@ -42,7 +36,7 @@ apt-get -y install ttf-dejavu ttf-liberation
 #apt-get -y install libtcnative-1
 
 # clean up
-apt-get -y remove expect unzip
+apt-get -y autoremove expect unzip
 rm -rf /var/lib/apt/lists/*
-rm -f Rinxter-*.zip
+rm -f Rinxter-*.zip Rinxter-*.jar
 
