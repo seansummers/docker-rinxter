@@ -9,6 +9,7 @@ testfull:	$(ID)
 	$(D) run -P -t -i -rm $(shell cat $<)
 
 testinteractive:	$(ID)
+	$(D) images | grep $(shell cat $<)
 	$(D) run -P -t -i -rm --entrypoint=/bin/bash $(shell cat $<) -i
 
 $(ID):	Dockerfile install.sh 
