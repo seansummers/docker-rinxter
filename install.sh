@@ -6,6 +6,8 @@ RINXTERBIN=${RINXTER}/../2.0
 # prep apt-get
 echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup
 echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
+apt-get update
+apt-get -y upgrade
 
 # unzip Rinxter and install...
 apt-get -y install unzip expect
@@ -33,7 +35,7 @@ rm -rf /var/lib/apt/lists/*
 mkdir -p ${RINXTERBIN}/lib/ext
 
 # fix script line endings
-perl -pi -e 's/\r//g' ${RINXTERBIN}/bin/*.sh
+sed -i 's/\r//g' ${RINXTERBIN}/bin/*.sh
 
 # create temp in the data volume so that rinxter's hard-link-upload-to-destination trick works
 mkdir -p ${RINXTER}/temp
