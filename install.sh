@@ -28,7 +28,7 @@ while {1} {
 
 # clean up
 apt-get -y autoremove expect unzip
-apt-get autoclean
+apt-get clean
 rm -rf /var/lib/apt/lists/*
 
 # add missing directories
