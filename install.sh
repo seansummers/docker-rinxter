@@ -41,7 +41,7 @@ sed -i 's/\r//g' ${RINXTERBIN}/bin/*.sh
 mkdir -p ${RINXTER}/temp
 
 # remove myself
-rm -f /install.sh
+rm -f /install.sh && exit 0
 
 # FIXME
 # don't fall for this -- it's the wrong version

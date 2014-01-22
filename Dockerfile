@@ -1,4 +1,4 @@
-FROM zachlatta/docker-jvm
+FROM seansummers/openjdk-7-jre-headless
 MAINTAINER Sean Summers <seansummers@gmail.com>
 ADD http://rinxter.com/www/wp-content/uploads/2014/01/Rinxter-2.0.201401051.zip /
 # 2013-01-21T09:54
