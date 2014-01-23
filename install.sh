@@ -14,7 +14,7 @@ apt-get -y install unzip expect
 unzip /Rinxter-*.zip && rm -f /Rinxter-*.zip || exit 1
 
 # install fonts needed for pdf reports
-apt-get -y install ttf-dejavu
+apt-get -y install ttf-bitstream-vera
 
 expect -c 'spawn java -jar Rinxter-2.0.jar -console
 while {1} {
