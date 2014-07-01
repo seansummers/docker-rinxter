@@ -1,7 +1,7 @@
 FROM seansummers/openjdk-7-jre-headless
 MAINTAINER Sean Summers <seansummers@gmail.com>
-ADD http://rinxter.com/www/wp-content/uploads/2014/01/Rinxter-2.0.201401051.zip /
-ENV LAST_UPDATED 2013-01-23T09:19
+ADD http://rinxter.com/dist/Rinxter-2.0.20140630.zip /
+ENV LAST_UPDATED 2014-07-01T09:16
 ADD install.sh /
 WORKDIR /root
 RUN /install.sh
