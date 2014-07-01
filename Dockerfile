@@ -7,8 +7,8 @@ WORKDIR /root
 RUN apt-get update && apt-get -y install ttf-bitstream-vera unzip expect
 RUN unzip /Rinxter-*.zip && rm -f /Rinxter-*.zip || exit 1
 RUN expect -c 'spawn java -jar Rinxter-2.0.jar -console \
-while {1} { \
- expect {
+ while {1} { \
+ expect { \
   "*redisplay*\r" { send "1\r" } \
   "*target path*\r" { send "\r"} \
   "*deselect:*\r" { send "0\r" } \
